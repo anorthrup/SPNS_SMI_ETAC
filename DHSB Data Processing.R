@@ -565,7 +565,7 @@ dhsb_labels <- tribble(
   "ARTADHR_RCD_Positive",       "ART Adherence: Positive",
   "HE_RC_HAL",                  "YEHS: Health Access Literacy Subscale",
   "HE_RC_HSE",                  "YEHS: Health Self-Efficacy Subscale",
-  "CARELHV",                    "Ever received HIV care",
+  "CARELHIV",                   "Ever received HIV care",
   "CARE_RC",                    "Provider Empathy Scale",
   "STIGMA_RC",                  "HIV-related Stigma Scale",
   "DISC_RCD_Anyone",            "HIV Status Disclosed",
