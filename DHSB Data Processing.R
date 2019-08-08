@@ -9,6 +9,10 @@
 #####Load data set
 load("acasi_mcd.RData")
 
+#####Load required packages
+library(tidyverse)
+library(lubridate)
+
 #####Creation of new variables
 #####> Collapse existing demographic variables and create scales
 
@@ -493,7 +497,7 @@ dhsb_analysis <- dhsb %>%
          ARTNOW_RCD_Yes, ARTNOW_RCD_Missing, #Healthcare utilization: Treatment
          ARTADHR_RCD_Neutral, ARTADHR_RCD_Positive, #Healthcare utilization: Adherence
          HE_RC_HAL, HE_RC_HSE, #Youth Health Engagement scale
-         CARE_RC, #Provider Empathy (CARE) scale, along with indicator of whether it is skipped (CARELHIV)
+         CARELHIV, CARE_RC, #Provider Empathy (CARE) scale, along with indicator of whether it is skipped (CARELHIV)
          STIGMA_RC, #HIV-related stigma
          DISC_RCD_Missing, 
          DISC_RCD_Anyone, #> Shouldn't be included in model with Partner/Family/Other disclosures
@@ -561,6 +565,7 @@ dhsb_labels <- tribble(
   "ARTADHR_RCD_Positive",       "ART Adherence: Positive",
   "HE_RC_HAL",                  "YEHS: Health Access Literacy Subscale",
   "HE_RC_HSE",                  "YEHS: Health Self-Efficacy Subscale",
+  "CARELHV",                    "Ever received HIV care",
   "CARE_RC",                    "Provider Empathy Scale",
   "STIGMA_RC",                  "HIV-related Stigma Scale",
   "DISC_RCD_Anyone",            "HIV Status Disclosed",
