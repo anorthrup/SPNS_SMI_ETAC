@@ -55,8 +55,6 @@ dhsb <- acasi_mcd %>%
     ##> Non-mutually exclusive variable RACE combined with LATINO for new mutually exclusive RACE_RC variable
     RACE_RC = case_when(LATINO == 1 ~ "Latino",
                         RACEC == 1 ~ "Black, Not Latino",
-                        RACEE == 1 & RACE > 1 ~ 
-                          "White Mixed-Race, Not Latino or Black",
                         RACEE == 1 ~ "White, Not Latino",
                         LATINO == 8 & RACE == 8 ~ "Refuse to answer", #None refused to answer
                         !is.na(RACERECODE) ~ RACERECODE,
@@ -64,7 +62,6 @@ dhsb <- acasi_mcd %>%
     RACE_RCR_White    = if_else(RACE_RC == "White, Not Latino", 1, 0), ##> Reference (not included in final set)
     RACE_RCD_Latino   = if_else(RACE_RC == "Latino", 1, 0),
     RACE_RCD_Black    = if_else(RACE_RC == "Black, Not Latino", 1, 0),
-    RACE_RCD_WhiteMix = if_else(RACE_RC == "White Mixed-Race, Not Latino or Black", 1, 0),
     RACE_RCD_Other    = if_else(RACE_RC == "Other race", 1, 0),
     RACE_RCD_Missing  = if_else(RACE_RC == "Refuse to answer", 1, 0),
     #> Gender Identity
@@ -481,8 +478,7 @@ dhsb_analysis <- dhsb %>%
          SITE_RCD_PFC, SITE_RCD_PSU, SITE_RCD_SFDPH, SITE_RCD_WFU, SITE_RCD_WUSL, #Site
          surveylanguage_RCD_Eng,
          AGE_RC, #Age
-         RACE_RCD_Latino, RACE_RCD_Black, RACE_RCD_WhiteMix, 
-         RACE_RCD_Other, RACE_RCD_Missing, #Ethnicity & Race
+         RACE_RCD_Latino, RACE_RCD_Black, RACE_RCD_Other, RACE_RCD_Missing, #Ethnicity & Race
          GENDER_RCD_Female, GENDER_RCD_Trans, 
          GENDER_RCD_Other, GENDER_RCD_Missing, #Gender
          ORIENT_RCD_Gay, ORIENT_RCD_Bi, ORIENT_RCD_Other, #Orientation
