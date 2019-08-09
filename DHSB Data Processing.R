@@ -165,8 +165,8 @@ dhsb <- acasi_mcd %>%
     ViralSupp_RCD_Suppressed   = if_else(ViralSupp_MCD_RC == "Suppressed", 1, 0),
     ViralSupp_RCD_Missing      = if_else(ViralSupp_MCD_RC == "Missing", 1, 0),
     #> Insurance
-    INSURE_RC = case_when(INSUREA == 1 ~ "Not insured",
-                          INSURE == 97 ~ "Don't know",
+    INSURE_RC = case_when(INSUREA == 1 | INSURE == 97 ~ "Not insured",
+                          # INSURE == 97 ~ "Don't know",
                           INSURE == 98 ~ "Refuse to answer",
                           INSURE == 99 ~ "Skipped", #None refused to answer
                           INSUREB == 1 | INSUREC == 1 | INSURED == 1 |
@@ -487,7 +487,7 @@ dhsb_analysis <- dhsb %>%
          STAY7D_RCD_Stable, STAY7D_RCD_Missing, #Housing
          BORNHIV, TIMESINCEHIV,
          ViralSupp_RCD_Suppressed, #Viral Suppression
-         INSURE_RCD_Insured, INSURE_RCD_Unknown, INSURE_RCD_Missing, #Healthcare utilization: Insurance
+         INSURE_RCD_Insured, INSURE_RCD_Missing, #INSURE_RCD_Unknown, #Healthcare utilization: Insurance
          CARED6_RCD_Yes, CARED6_RCD_Missing, #Healthcare utilization: Recent care
          CAREHV06_MCD_RCD_Yes, CAREHV06_MCD_RCD_Missing,
          ARTNOW_RCD_Yes, ARTNOW_RCD_Missing, #Healthcare utilization: Treatment
@@ -550,7 +550,7 @@ dhsb_labels <- tribble(
   "TIMESINCEHIV",               "Years Since HIV Diagnosis",
   "ViralSupp_RCD_Suppressed",   "Viral Suppression (Self-reported)",
   "INSURE_RCD_Insured",         "Insurance: Insured",
-  "INSURE_RCD_Unknown",         "Insurance: Don't Know",
+  # "INSURE_RCD_Unknown",         "Insurance: Don't Know",
   "CARED6_RCD_Yes",             "Non-HIV Care Visits, Past 6 Months: Yes",
   "CAREHV06_MCD_RCD_Yes",       "HIV Care Visits, Past 6 Months: Yes",
   "CAREHV06_MCD_RCD_Missing",   "HIV Care Visits, Past 6 Months: Missing",
