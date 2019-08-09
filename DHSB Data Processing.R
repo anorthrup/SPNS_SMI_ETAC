@@ -500,7 +500,7 @@ dhsb_analysis <- dhsb %>%
          MENTALH_RC, MENTALH4_RC,#Mental health
          DRUG_RCD_Alcohol, DRUG_RCD_Tobacco, DRUG_RCD_Marijuana, 
          DRUG_RCD_Other, #DRUG_RCD_Missing, #Substance use: non-injected
-         DRUG_RCD_Uses, #> Shouldn't be included in model with Tobacco/Marijuana/Other substances
+         DRUG_RCD_Uses, #> Shouldn't be included in model with Alcohol/Tobacco/Marijuana/Other substances
          INJECTL_RCD_Yes, INJECTL_RCD_Missing, #Substance use: injected
          SOCIALS_RC, #Social support
          #Media Technology Usage and Attitudes Scale
@@ -570,7 +570,7 @@ dhsb_labels <- tribble(
   "DRUG_RCD_Tobacco",           "Substance Use: Tobacco",
   "DRUG_RCD_Marijuana",         "Substance Use: Marijuana",
   "DRUG_RCD_Other",             "Substance Use: Other Non-Injected",
-  "DRUG_RCD_Uses",              "Substance Use Other Than Alcohol",
+  "DRUG_RCD_Uses",              "Substance Use: Non-Injected Substance(s) Used",
   "INJECTL_RCD_Yes",            "Injected Substance Use: Yes",
   "INJECTL_RCD_Missing",        "Injected Substance Use: Missing",
   "SOCIALS_RC",                 "Social Support Scale",
