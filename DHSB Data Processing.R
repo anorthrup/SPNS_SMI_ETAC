@@ -385,7 +385,7 @@ dhsb <- acasi_mcd %>%
         rowSums(select(., one_of(c(paste0("MTUSNX0", 1:9, "_RC")))), na.rm = TRUE) #If so, sum columns
     )
   ) %>%
-  #> Positive Attitudes Toward Technology, 6 items (MTUAX01, MTUAX03:MTUAX04, MTUAX09:MTUAX11; MTUAX02 to be kept separate)
+  #> Positive Attitudes Toward Technology, 6 items (MTUAX01, MTUAX03:MTUAX04, MTUAX09:MTUAX11; MTUAX02 is not part of the original scale and is not included here)
   mutate_at(vars(matches("MTUAX\\d{2}")),
             list(RC = ~replace(., which(. > 5), NA))) %>% #Values of 0-5 expected; 8 = refuse to answer; 9 = skipped (none)
   mutate(
@@ -399,7 +399,7 @@ dhsb <- acasi_mcd %>%
         na.rm = TRUE) #If so, sum columns
     )
   ) %>%
-  #> Anxiety About Being Without Technology or Dependence on Technology, 3 items (MTUAX05, MTUAX06, MTUAX08; MTUAX07 to be kept separate)
+  #> Anxiety About Being Without Technology or Dependence on Technology, 3 items (MTUAX05, MTUAX06, MTUAX08; MTUAX07 is not part of the original scale and is not included here)
   mutate(
     MTUAX_RC_Anx = case_when(
       rowSums(is.na(select(., one_of(
