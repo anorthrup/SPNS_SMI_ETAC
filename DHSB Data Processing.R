@@ -533,7 +533,6 @@ dhsb_labels <- tribble(
   "AGE_RC",                     "Age (Years)",
   "RACE_RCD_Latino",            "Ethnicity and Race: Latino",
   "RACE_RCD_Black",             "Ethnicity and Race: Black, Not Latino",
-  "RACE_RCD_WhiteMix",          "Ethnicity and Race: White Mixed-Race, Not Latino or Black",
   "RACE_RCD_Other",             "Ethnicity and Race: Other",
   "GENDER_RCD_Female",          "Gender: Female (cis woman)",
   "GENDER_RCD_Trans",           "Gender: Trans-identified",
